@@ -32,6 +32,7 @@ jobs:
         ./buildconf --force
         ./configure
         make -j$(nproc)
+        yes | make TEST_PHP_ARGS=-j$(nproc) test
         sudo make install
         php -v
         cd ..
